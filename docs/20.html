@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>20以内加减法</title>
+    <style>
+        table {
+            width: 100%;
+            padding: 0;
+            margin: 0;
+        }
+
+        table td {
+            width: 25%;
+            text-align: left;
+            padding: 0;
+            margin: 0;
+            font-size: 18px;
+            line-height: 32px;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="app"></div>
+
+    <script>
+        function plus(max, min) {
+            const firstNum = Math.max((Math.random() * max) | 0 + 1, min);
+            const secondNum = (Math.random() * (max - firstNum)) | 0 + 1;
+            return `${firstNum} + ${secondNum} = `;
+        };
+
+        function subtract(max, min=0) {
+            const firstNum = Math.max((Math.random() * max) | 0 + 1, min);
+            const secondNum = (Math.random() * firstNum) | 0 + 1;
+            return `${firstNum} - ${secondNum} = `;
+        };
+    </script>
+
+    <script>
+        const formula = () => {
+            const isOdd = (Math.random()*100 | 0) % 2;
+            return isOdd ? plus(20, 1) : subtract(20, 9);
+        };
+
+        let html = [
+            '<table>'
+        ];
+
+        let num = 1000;
+
+        for(let i = 0; i < num; ++i) {
+            html.push('<tr>');
+            html.push('<td>' + formula() +  '</td>');
+            html.push('<td>' + formula() +  '</td>');
+            html.push('<td>' + formula() +  '</td>');
+            html.push('<td>' + formula() +  '</td>');
+            html.push('</tr>');
+        }
+
+        html.push('</table>');
+
+        document.getElementById('app').innerHTML = html.join('');
+    </script>
+    
+</body>
+
+</html>
