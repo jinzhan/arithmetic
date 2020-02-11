@@ -32,6 +32,10 @@
             if (complex &&  (firstNum + secondNum < 12)) {
                 return plus(max, min, true);
             }
+            
+            if (secondNum < 3) {
+                secondNum = secondNum * 3;
+            }
             return `${firstNum} + ${secondNum} = `;
         };
 
