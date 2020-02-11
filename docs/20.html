@@ -27,14 +27,14 @@
 
     <script>
         function plus(max, min) {
-            const firstNum = Math.max((Math.random() * max) | 0 + 1, min);
-            const secondNum = (Math.random() * (max - firstNum)) | 0 + 1;
+            const firstNum = Math.max(((Math.random() * max) | 0) + 1, min);
+            const secondNum = ((Math.random() * (max - firstNum)) | 0) + 1;
             return `${firstNum} + ${secondNum} = `;
         };
 
         function subtract(max, min=0) {
-            const firstNum = Math.max((Math.random() * max) | 0 + 1, min);
-            const secondNum = (Math.random() * firstNum) | 0 + 1;
+            const firstNum = Math.max(((Math.random() * max) | 0) + 1, min);
+            const secondNum = ((Math.random() * firstNum) | 0) + 1;
             return `${firstNum} - ${secondNum} = `;
         };
     </script>
