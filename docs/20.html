@@ -29,13 +29,10 @@
         function plus(max, min, complex) {
             const firstNum = Math.max(((Math.random() * max) | 0) + 1, min);
             const secondNum = ((Math.random() * (max - firstNum)) | 0) + 1;
-            if (complex &&  (firstNum + secondNum < 12)) {
+            if (complex &&  (firstNum + secondNum < 12 || secondNum < 3)) {
                 return plus(max, min, true);
             }
-            
-            if (secondNum < 3) {
-                secondNum = secondNum * 3;
-            }
+
             return `${firstNum} + ${secondNum} = `;
         };
 
