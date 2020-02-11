@@ -35,6 +35,9 @@
         function subtract(max, min=0) {
             const firstNum = Math.max(((Math.random() * max) | 0) + 1, min);
             const secondNum = ((Math.random() * firstNum) | 0) + 1;
+            if (firstNum === secondNum && secondNum < 3) {
+                return subtract(max, min);
+            }
             return `${firstNum} - ${secondNum} = `;
         };
     </script>
@@ -42,7 +45,7 @@
     <script>
         const formula = () => {
             const isOdd = (Math.random()*100 | 0) % 2;
-            return isOdd ? plus(20, 1) : subtract(20, 9);
+            return isOdd ? plus(20, 1) : subtract(20, 10);
         };
 
         let html = [
