@@ -26,17 +26,20 @@
     <div id="app"></div>
 
     <script>
-        function plus(max, min) {
+        function plus(max, min, complex) {
             const firstNum = Math.max(((Math.random() * max) | 0) + 1, min);
             const secondNum = ((Math.random() * (max - firstNum)) | 0) + 1;
+            if (complex &&  (firstNum + secondNum < 12))) {
+                return plus(max, min, true);
+            }
             return `${firstNum} + ${secondNum} = `;
         };
 
-        function subtract(max, min=0) {
+        function subtract(max, min=0, complex) {
             const firstNum = Math.max(((Math.random() * max) | 0) + 1, min);
             const secondNum = ((Math.random() * firstNum) | 0) + 1;
-            if (firstNum === secondNum && secondNum < 3) {
-                return subtract(max, min);
+            if (complex && (firstNum === secondNum || secondNum < 3)) {
+                return subtract(max, min, true);
             }
             return `${firstNum} - ${secondNum} = `;
         };
@@ -45,7 +48,7 @@
     <script>
         const formula = () => {
             const isOdd = (Math.random()*100 | 0) % 2;
-            return isOdd ? plus(20, 1) : subtract(20, 10);
+            return isOdd ? plus(20, 1, true) : subtract(20, 10, true);
         };
 
         let html = [
